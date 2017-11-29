@@ -3,35 +3,36 @@
     <p>Adicione seu gasto</p>
   </div>
 </div>
-<div class="container color-light" [@despesas]="despesas.length">
+<div class="container color-light">
   <div class="col">
     <p class="sm">Informe seu gasto</p>
-    <form >
-      <label for="item"><strong>Categoria : </strong></label><br /><br />
+    <form>
+      <label for="item">
+        <strong>Categoria : </strong>
+      </label>
+      <br />
+      <br />
       <input type="text" class="txt" name="itens" list="categorias" [(ngModel)]="despesa.desc">
-      <datalist id="categorias"  >
+      <datalist id="categorias">
         <option *ngFor="let cat of categorias; let i = index;" [ngValue]="cat">{{cat}}</option>
-      </datalist><br />
-      <label for="valor"><strong>Valor : </strong></label><br /><br />
-      <input type="number" class="txt" name="valor" step="0.1" [(ngModel)]="despesa.valor"><br />
-      <label for="data"><strong>Data : </strong></label><br /><br />
-      <input type="date" class="txt" name="data"  [(ngModel)]="despesa.date">
-      <br> <span class="reflect">{{despesa.desc}}</span>
+      </datalist>
+      <br />
+      <label for="valor">
+        <strong>Valor : </strong>
+      </label>
+      <br />
+      <br />
+      <input type="number" class="txt" name="valor" step="0.1" [(ngModel)]="despesa.valor">
+      <br />
+      <label for="data">
+        <strong>Data : </strong>
+      </label>
+      <br />
+      <br />
+      <input type="date" class="txt" name="data" [(ngModel)]="despesa.data">
+      <br>
       <input type="submit" class="btn" [value]="btnText" (click)="addItem()">
     </form>
   </div>
 </div>
-
-<div class="container color-dark">
-    <div class="col">
-      <p>Seus gastos ({{ itemCount }})</p>
-    </div>
-</div>
-<div class="container color-light" [@despesas]="despesas.length">
-  <div class="col">
-    <p class="life-container" *ngFor="let dispesa of despesas; let i = index;" (click)="removeItem(i)">     
-      {{dispesa.desc}} - {{dispesa.valor}}
-    </p>
-
-  </div>
-</div>
+<app-list></app-list>

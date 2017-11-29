@@ -1,0 +1,45 @@
+
+.color-dark {
+    background: rgb(196, 40, 188);
+}
+.color-light {
+    background: rgb(159, 87, 241);
+}
+.life-container {
+    background:rgb(146, 18, 24);
+    padding:.5em;
+    font-weight:bold;
+    cursor:pointer;
+}
+.rtl {
+    direction: RTL;
+}
+.rtl .pull-right {
+    float:left !important;
+}
+@media(min-width: 550px) {
+    .container {
+        display: grid;
+        grid-template-columns: 50% auto;
+    }
+    .col {
+        padding: .4em 1.3em;
+    }
+
+}
+
+@media (max-width: 550px) {
+    .container {
+        display: grid;
+        grid-template-columns: 100% auto;
+    }
+    .col {
+        block-size: 10 vw;
+        padding: .2em 0.8em;
+    }
+    span.reflect {
+        border: 1em;
+        width: 100%;
+        margin: 1em;
+    }
+}
