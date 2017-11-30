@@ -4,7 +4,7 @@
 @media(min-width: 800px) {
     @import url('https://fonts.googleapis.com/css?family=Raleway:300,700');
     body {
-        background:rgb(86, 46, 230);
+        background:#2E9CE6;
         padding: 3em;
         font-family: 'Raleway', 'Arial';
         color:rgb(255, 255, 255);
@@ -31,7 +31,7 @@
 
     @import url('https://fonts.googleapis.com/css?family=Ubuntu:300,700');
     body {
-        background:rgb(86, 46, 230);
+        background:#2E9CE6;
         font-family: 'Ubuntu', 'sans-serif';
         color:rgb(255, 255, 255);
     }

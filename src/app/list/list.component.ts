@@ -9,16 +9,17 @@ import { DatePipe } from '@angular/common';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
-
+  
+  constructor(private _data:DataService) { }  
   //@Input() despesas: Array<Despesa>;
   despesas : Array<Despesa> = [];
   itemCount : number = 0;
 
-  constructor(private _data:DataService) { }  
 
   ngOnInit() {
     const self = this;
-    self._data.despesa.subscribe(res=>self.despesas = res);  
+    self._data.despesa.subscribe(res=>self.despesas = this._data.buscarDespesas());  
+    
     self._data.qtd.subscribe(res=>self.itemCount = res); 
     self._data.alterarContagem(self.itemCount);
     self._data.alterarDespesa(self.despesas);
@@ -28,9 +29,13 @@ export class ListComponent implements OnInit {
     const self = this;
     self.despesas.splice(i,1);
     self.itemCount = self.despesas.length;
+    self._data.excluirDespesa(self.despesas[i]);
     self._data.alterarDespesa(self.despesas);
-    self._data.alterarContagem(self.itemCount);
+    self._data.alterarContagem(self.calcTotal());
   }
 
+  private calcTotal():number{
+    return Math.abs(this.despesas.map(a=>a.valor).reduce((a,b)=>a-b));
+  }
 
 }

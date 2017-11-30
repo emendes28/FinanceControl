@@ -1,12 +1,12 @@
 
 .color-dark {
-    background: rgb(196, 40, 188);
+    background: #2885C4;
 }
 .color-light {
-    background: rgb(159, 87, 241);
+    background: #57B3F1;
 }
 .life-container {
-    background:rgb(146, 18, 24);
+    background:#3FA0E1;
     padding:.5em;
     font-weight:bold;
     cursor:pointer;

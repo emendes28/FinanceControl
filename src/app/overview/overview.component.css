@@ -1,4 +1,36 @@
 
+/* The alert message box */
+.alert {
+    padding: 20px;
+    background-color: #f44336; /* Red */
+    color: white;
+    margin-bottom: 15px;
+}
+
+/* The close button */
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+    color: black;
+}
+
+.color-dark {
+    background: #2885C4;
+}
+.color-light {
+    background: #57B3F1;
+}
+
 @media(min-width: 550px) {
     .container {
         display: grid;
@@ -6,13 +38,8 @@
     }
     .col {
         padding: .4em 1.3em;
-    }
-    .color-dark {
-        background: rgb(196, 40, 188);
-    }
-    .color-light {
-        background: rgb(159, 87, 241);
-    }
+    
+}
 
     input.txt {
         border: 0;
@@ -24,13 +51,13 @@
         border: 0;
         display:block;
         padding:1em 3em;
-        background:rgb(229, 231, 71);
-        color:rgb(97, 36, 0);
+        background:#A5F883;
+        color:#003A61;
         margin-bottom:1em;
         cursor:pointer;
     }
     .life-container {
-        background:rgb(146, 18, 24);
+        background:#3FA0E1;
         padding:.5em;
         font-weight:bold;
         cursor:pointer;
@@ -47,13 +74,6 @@
         block-size: 10 vw;
         padding: .2em 0.8em;
     }
-    .color-dark {
-        background: rgb(196, 40, 188);
-    }
-    .color-light {
-        background: rgb(159, 87, 241);
-    }
-    
     input.txt {
         border: 0;
         padding: 1em;
@@ -70,13 +90,13 @@
     input.btn {
         display:block;
         padding:1em 4em;
-        background:rgb(229, 231, 71);
-        color:rgb(97, 36, 0);
-        margin: 1em 0 1em 0;
+        background:#A5F883;
+        color:#003A61;
+        margin-bottom:1em;
         cursor:pointer;
     }
     .life-container {
-        background:rgb(146, 18, 24);
+        background:#3FA0E1;
         padding:.5em;
         font-weight:bold;
         cursor:pointer;

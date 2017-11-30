@@ -22,7 +22,7 @@
       </label>
       <br />
       <br />
-      <input type="number" class="txt" name="valor" step="0.1" [(ngModel)]="despesa.valor">
+      <input type="number" class="txt" name="valor" step="0.1" (click)="despesa.valor=null" [(ngModel)]="despesa.valor">
       <br />
       <label for="data">
         <strong>Data : </strong>
@@ -34,5 +34,9 @@
       <input type="submit" class="btn" [value]="btnText" (click)="addItem()">
     </form>
   </div>
+</div>
+<div class="alert" *ngIf="showMesage">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  Gasto Salvo com sucesso !
 </div>
 <app-list></app-list>
