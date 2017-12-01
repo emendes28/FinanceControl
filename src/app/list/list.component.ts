@@ -2,6 +2,7 @@ import { Component, OnInit, Input  } from '@angular/core';
 import { Despesa } from '../models/despesa';
 import { DataService } from '../data.service';
 import { DatePipe } from '@angular/common';
+import { IndexedDBAngular } from 'indexeddb-angular';
 
 @Component({
   selector: 'app-list',
@@ -18,11 +19,19 @@ export class ListComponent implements OnInit {
 
   ngOnInit() {
     const self = this;
-    self._data.despesa.subscribe(res=>self.despesas = this._data.buscarDespesas());  
-    
+    self._data.despesa.subscribe(res=>self.despesas = res);      
     self._data.qtd.subscribe(res=>self.itemCount = res); 
     self._data.alterarContagem(self.itemCount);
     self._data.alterarDespesa(self.despesas);
+    let db = new IndexedDBAngular('meusGastos', 1);
+    db.createStore(1, (evt) => {
+        let objectStore = evt.currentTarget.result.createObjectStore(
+            'despesas', { keyPath: "id", autoIncrement: true });
+
+        objectStore.createIndex("data", "data", { unique: false });
+
+        self._data.buscarDespesas().subscribe(res=>self.despesas = res);
+    });
   }
 
   removeItem(i){

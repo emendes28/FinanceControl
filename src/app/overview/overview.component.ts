@@ -6,7 +6,8 @@ import { ListComponent } from '../list/list.component';
 @Component({
   selector: 'app-overview',
   templateUrl: './overview.component.html',
-  styleUrls: ['./overview.component.css']
+  styleUrls: ['./overview.component.css'],
+  preserveWhitespaces: false
 })
 
 export class OverviewComponent implements OnInit {

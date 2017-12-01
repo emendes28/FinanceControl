@@ -12,7 +12,10 @@ export class DataService {
   despesa = this.despesas.asObservable();
   qtd = this.countDespesas.asObservable();
 
-  constructor() {this.db.createStore(1, this.createCollections) }
+  constructor() {
+    
+    this.db.createStore(1, this.createCollections) 
+  }
 
   createCollections(db) {
     db.currentTarget.result.createObjectStore('despesas');
@@ -27,7 +30,7 @@ export class DataService {
   }
 
   salveDespesa(despesa): Boolean {
-    this.db.add('despesas',despesa,despesa.id).then(() => {
+    this.db.add('despesas',despesa,this.despesas.value.length+1).then(() => {
       console.log(despesa);
       return true;
     }, (error) => {
@@ -36,14 +39,14 @@ export class DataService {
     return false;
   }
 
-  buscarDespesas(): Array<Despesa> {
+  buscarDespesas(): BehaviorSubject<Array<Despesa>> {
     this.db.getAll('despesas').then((despesas) => {
       this.despesas = despesas;
       return despesas;
     }, (error) => {
       console.log(error);
     });
-    return [];
+    return new BehaviorSubject<Array<Despesa>>([]);
   }
 
   excluirDespesa(despesa): Boolean {
