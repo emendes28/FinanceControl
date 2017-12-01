@@ -14,7 +14,7 @@ export class OverviewComponent implements OnInit {
 
   btnText: string = 'Adicionar';
   despesas: Array<Despesa> = [];
-  categorias = ['Almoço', 'Mercado'];
+  categorias = ['Mercado','Almoco','Outros','Compras','Farmacia','Estudo','Mimos','Lanche'];
   despesa: Despesa = new Despesa(0, '', new Date(), 0);
   total: number = 0;
   showMesage: Boolean = false;

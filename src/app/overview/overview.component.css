@@ -67,10 +67,15 @@
 
 @media (max-width: 550px) {
     .container {
-        display: grid;
+        display: block;
         grid-template-columns: 100% auto;
     }
     .col {
+        block-size: 10 vw;
+        padding: .2em 0.8em;
+    }
+    
+    .col-variable {
         block-size: 10 vw;
         padding: .2em 0.8em;
     }
