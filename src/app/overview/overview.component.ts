@@ -25,6 +25,8 @@ export class OverviewComponent implements OnInit {
     const self = this;
     self._data.despesa.subscribe(res => self.despesas = res);
     self._data.qtd.subscribe(res => self.total = res);
+    self.openDB();
+    self._data.buscarDespesas();
     self._data.alterarDespesa(self.despesas);
     self._data.alterarContagem(self.total);
   }
@@ -51,4 +53,27 @@ export class OverviewComponent implements OnInit {
     return this.despesas.map(a => a.valor).reduce((a, b) => a + b);
   }
 
+  private openDB() {
+    const self = this;
+    let db;
+    const request = indexedDB.open("meusGastos");
+    request.onerror = (event) => {
+      console.error("Você não habilitou minha web app para usar IndexedDB?!");
+    };
+    request.onsuccess = (event) => {
+      db = request.result;
+      const myData = db.objectStoreNames[0];
+      const transaction = db.transaction(myData);
+      const objectStore = transaction.objectStore(myData);
+      const requestData = objectStore.getAll();
+      request.onerror = (event) => {
+        console.error(event);
+      };
+      request.onsuccess = (event) => {
+        // Fazer algo com request.result!
+        self.despesas = request.result;
+      };
+    };
+    console.info(request);
+  }
 }

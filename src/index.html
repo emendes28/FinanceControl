@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="pt-Br">
+
 <head>
   <meta charset="utf-8">
   <title>ControlGasto</title>
@@ -8,8 +9,30 @@
   <meta name="theme-color" content="#009688">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script>
+    //Este Se abaixo verifica se o seu navegador pode executar serviceWorker
+    if (navigator.serviceWorker) {
+      //Ao entraa ele tenta registrar um service work
+      navigator.serviceWorker.register('sw.js').then(
+        function (data) {
+          //Caso a registro (promessa) seja executada com sucesso :) começamos
+          console.info('O ServiceWorker está habilitado para : ', data.scope);
+        }
+      ).catch(
+        function (err) {
+          // Caso a promessa retorne com erro :(
+          console.error('Não foi possivel registrar o Service Worker msg de erro: ', err);
+        }
+        );
+    }
+  </script>
 </head>
+
 <body>
   <app-root></app-root>
+  <noscript>
+    Por favor Habilite o JavaScript
+  </noscript>
 </body>
+
 </html>

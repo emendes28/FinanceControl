@@ -10,7 +10,8 @@
       "assets": [
         "assets",
         "favicon.ico",
-        "service-worker.js"
+        "sw.js",
+        "urlTratamento.html"
       ],
       "index": "index.html",
       "main": "main.ts",
