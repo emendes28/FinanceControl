@@ -1,19 +1,19 @@
 <!doctype html>
-<html lang="pt-Br">
+<html lang="pt-br">
 
 <head>
   <meta charset="utf-8">
   <title>ControlGasto</title>
   <base href="./">
-  <link rel="manifest" href="assets/manifest.json">
+  <link rel="manifest" href="./assets/manifest.json">
   <meta name="theme-color" content="#009688">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="./favicon.ico">
   <script>
     //Este Se abaixo verifica se o seu navegador pode executar serviceWorker
     if (navigator.serviceWorker) {
       //Ao entraa ele tenta registrar um service work
-      navigator.serviceWorker.register('sw.js').then(
+      navigator.serviceWorker.register('./sw.js').then(
         function (data) {
           //Caso a registro (promessa) seja executada com sucesso :) começamos
           console.info('O ServiceWorker está habilitado para : ', data.scope);
