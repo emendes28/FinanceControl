@@ -10,7 +10,6 @@ import { AppComponent } from './app.component';
 import { OverviewComponent } from './overview/overview.component';
 import { ListComponent } from './list/list.component';
 /*
-
     HistoryComponent,
     ReportsComponent,
     */
