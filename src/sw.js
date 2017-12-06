@@ -1,4 +1,3 @@
-const self = this;
 const CACHE_MY_SITE = 'my-webapp-cache';
 const urlsDisponiveisOffiline = [
     "./index.html",
@@ -22,9 +21,9 @@ self.addEventListener('install',
                     return cache.addAll(urlsDisponiveisOffiline);
                 }
             ).catch(
-                (error) => {
+                (erro) => {
 
-                    console.error('O cache não foi adicionado por ' + error);
+                    console.error(` O cache não foi adicionado por ${erro}`);
                 })
         )
     });
@@ -41,7 +40,7 @@ self.addEventListener("fetch",
                     return response || fetch(e.request);
                 }
             ).catch(
-                 () => {
+                 (error) => {
                     //Se não Estamos sem conexão e//sem joguinho do dino :( rs temos a url...
                     return caches.match("/urlTratamento.html");
                 }

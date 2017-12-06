@@ -19,11 +19,12 @@ export class ListComponent implements OnInit {
 
   ngOnInit() {
     const self = this;
-    self._data.despesa.subscribe(res=>self.despesas = res);      
+    self._data.buscarDespesas().forEach(a=>self.despesas.push(a));
+    //self._data.despesa.subscribe(res=>self.despesas = res);      
     self._data.qtd.subscribe(res=>self.itemCount = res); 
     self._data.alterarContagem(self.itemCount);
     self._data.alterarDespesa(self.despesas);
-    this.despesas = self._data.buscarDespesas();    
+    
   }
 
   removeItem(i){
