@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",      
-    "postinstall": "ng build --aot --build-optimizer && http-server dist/ -p80",
+    "postinstall": "ng build --aot --build-optimizer && http-server dist/ -p5000",
     "build:prod": "ng build --prod --aot=false "
   },
   "private": true,
