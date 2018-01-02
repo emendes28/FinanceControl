@@ -15,7 +15,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ 'extended': 'false' }));
 app.use(express.static(path.join(__dirname, '../front/dist')));
-app.use('/dispendes', express.static(path.join(__dirname, '../front/dist')));
+app.use('/', express.static(path.join(__dirname, '../front/dist')));
 app.use('/dispende', dispende);
 app.use('/category', category);
 const prod = 'mastter:123456@ds237707.mlab.com:37707';
