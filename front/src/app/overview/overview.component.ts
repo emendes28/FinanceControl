@@ -24,8 +24,8 @@ export class OverviewComponent implements OnInit {
   ngOnInit() {
     const self = this;
     self._data.qtd.subscribe(res => self.total = res);
-    if() {
-       self.despesa = new Despesa(undefined, '', new Date(), 0)
+    if(true) {
+       self.despesa = new Despesa(undefined, '', new Date(), 0);
     }
     self._data.buscarDespesas().subscribe(res => self.despesas = res);
     self._data.alterarContagem(self.total);

@@ -18,9 +18,9 @@ app.use(express.static(path.join(__dirname, '../front/dist')));
 app.use('/dispendes', express.static(path.join(__dirname, '../front/dist')));
 app.use('/dispende', dispende);
 app.use('/category', category);
-const prod = 'chief:123456@ds131687.mlab.com:31687';
+const prod = 'mastter:123456@ds237707.mlab.com:37707';
 const dev = 'localhost:27017';
-mongoose.connect(`mongodb://${dev}/financeControl`, {
+mongoose.connect(`mongodb://${prod}/financecontrol`, {
     useMongoClient: true, promiseLibrary: require('bluebird')
 }).then(() => console.log('connection succesful'))
     .catch((err) => console.error(err));

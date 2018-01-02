@@ -5,7 +5,7 @@
   "main": "back/app.js",
   "scripts": {
     "back": "cd back && npm start",
-    "start" : "cd front && npm start  && node ../back/bin/www",
+    "start" : "cd front && ng build  && node ../back/bin/www",
     "local" : "cd front && ng build  && cd ../back && npm start",
     "front" : "cd front && ng serve",
     "test": "echo \"Error: no test specified\" && exit 1"
