@@ -3,22 +3,26 @@ const app = express.Router();
 const mongoose = require('mongoose');
 const Dispende = require('../models/Dispende.js');
 
-
-const tratativa = (err, post) => {
+/* GET all dispendes. */
+exports.getAll = (req, res, next) => Dispende.find( (err, post) => {
   if (err) return next(err);
   res.json(post);
-};
-
-
-
-/* GET all dispendes. */
-exports.getAll = (req, res, next) => Dispende.find(tratativa(err, dispendes));
+});
 
 /* SAVE  */
-exports.save = (req, res, next) => Dispende.create(req.body,tratativa(err, post));
+exports.save = (req, res, next) => Dispende.create(req.body, (err, post) => {
+  if (err) return next(err);
+  res.json(post);
+});
 
 /* UPDATE  */
-exports.update = (req, res, next) => Dispende.findByIdAndUpdate(req.params.id, req.body, tratativa(err, post));
+exports.update = (req, res, next) => Dispende.findByIdAndUpdate(req.params.id, req.body,  (err, post) => {
+  if (err) return next(err);
+  res.json(post);
+});
 
 /* DELETE  */
-exports.delete = (req, res, next) => Dispende.findByIdAndRemove(req.params.id, req.body, tratativa(err, post));
+exports.delete = (req, res, next) => Dispende.findByIdAndRemove(req.params.id, req.body,  (err, post) => {
+  if (err) return next(err);
+  res.json(post);
+});

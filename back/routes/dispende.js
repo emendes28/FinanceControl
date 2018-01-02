@@ -1,13 +1,11 @@
 const express = require('express');
 const app = express.Router();
-const dispende = require('../controllers/dispende.js');
+const dispende = require('../controllers/dispende');
 
-app.route('')
-    .get(dispende.getAll)
-    .post(dispende.save);
-    
-app.route('/:id')    
-    .put(dispende.update)
-    .delete(dispende.delete);
+app.get('/', dispende.getAll);
+/* SAVE  */
+app.post('/', dispende.save);
+app.put('/:id', dispende.update);
+app.delete('/:id', dispende.delete);
 
 module.exports = app;
