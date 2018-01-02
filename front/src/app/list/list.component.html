@@ -6,7 +6,7 @@
 </div>
 <div class="container color-light" >
   <div class="col">
-    <p class="life-container" *ngFor="let despesa of despesas; let i = index;">     
+    <p class="life-container" *ngFor="let despesa of despesas; let i = index;" (click)="edit(despesa)">     
       {{despesa.desc}} - {{despesa.valor}} - {{despesa.data | date:'dd/MM/yyyy' }} <i class="fa fa-trash-o pull-right" (click)="removeItem(i)" aria-hidden="true"></i>
     </p>
     

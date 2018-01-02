@@ -8,7 +8,7 @@
     <div class="container color-light">
       <div class="col">
         <p class="sm">Informe seu gasto</p>
-        <form>
+        <form (submit)="addItem()">
           <label for="item">
             <strong>Categoria : </strong>
           </label>
@@ -33,13 +33,9 @@
           <br />
           <input type="date" class="txt" name="data" [(ngModel)]="despesa.data">
           <br>
-          <input type="submit" class="btn" [value]="btnText" (click)="addItem()">
+          <input type="submit" class="btn" [value]="btnText" >
         </form>
       </div>
-    </div>
-    <div class="alert" *ngIf="showMesage">
-      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-      Gasto Salvo com sucesso !
     </div>
   </div>
   <!-- <div class="col-variable" *ngIf>

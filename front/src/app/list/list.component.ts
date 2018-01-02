@@ -19,21 +19,22 @@ export class ListComponent implements OnInit {
 
   ngOnInit() {
     const self = this;
-    self._data.buscarDespesas().forEach(a=>self.despesas.push(a));
+    self._data.buscarDespesas().forEach(a=>self.despesas = a);
     //self._data.despesa.subscribe(res=>self.despesas = res);      
     self._data.qtd.subscribe(res=>self.itemCount = res); 
     self._data.alterarContagem(self.itemCount);
-    self._data.alterarDespesa(self.despesas);
     
   }
 
   removeItem(i){
-    const self = this;
-    self.despesas.splice(i,1);
-    self.itemCount = self.despesas.length;
-    self._data.excluirDespesa(self.despesas[i]);
-    self._data.alterarDespesa(self.despesas);
-    self._data.alterarContagem(self.calcTotal());
+    const self = this;    
+    self._data.excluirDespesa(self.despesas[i]).subscribe(res=>  {
+      if(res != undefined) {
+        self.despesas.splice(i,1);
+        self.itemCount = self.despesas.length;
+        self._data.alterarContagem(self.calcTotal());
+      }      
+    });
   }
 
   private calcTotal():number{
